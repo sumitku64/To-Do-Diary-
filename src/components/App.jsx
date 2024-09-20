@@ -10,10 +10,12 @@ function App() {
   }
 
   function addItem() {
-    setItems(prevItems => {
-      return [...prevItems, inputText];
-    });
-    setInputText("");
+    if (inputText.trim() !== "") {  // Check if input is not empty or only whitespace
+      setItems((prevItems) => {
+        return [...prevItems, inputText];
+      });
+      setInputText("");
+    }
   }
 
   return (
